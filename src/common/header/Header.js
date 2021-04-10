@@ -487,7 +487,7 @@ class Header extends Component {
 
     isValidContactNo = (contactno) => {
         const isValidContactNo = new RegExp('^\\d{10}$');
-        if (!isValidContactNo.test(contactno) && !this.isContactNumberEmpty(contactno)) {
+        if (!isValidContactNo.test(contactno)) {
             this.setState({ loginContactInvalid: 'dispBlock' })
             return true;
         } else {
@@ -532,10 +532,6 @@ class Header extends Component {
             signupContactNoRequired = true;
         } else {
             this.setState({ signupContactNoRequired: "dispNone" });
-        }
-
-        if (!this.isValidContactNo(this.state.signupContactNo)) {
-            this.setState({signupContactNoRequired: ""})
         }
 
         // Emnail Validator
